@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logged jira issues</title>
+  </head>
+  <body>
+    <style>
+      td {
+        padding: 10px;
+      }
+      #total {
+        padding: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .table-container {
+        padding: 30px 0;
+      }
+      label {
+        margin-left: 20px;
+      }
+    </style>
+    <form id="form">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate" />
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" name="endDate" />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+      <button type="submint">Submit</button>
+    </form>
+    <div class="table-container">
+      <table>
+        <th>
+          <tr>
+            <td>Jira ticket</td>
+            <td>Date</td>
+            <td>Time logged</td>
+          </tr>
+        </th>
+        <tbody id="container"></tbody>
+      </table>
+    </div>
+    <div id="total"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
