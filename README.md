@@ -2,9 +2,9 @@
 
 ## How to:
 
-1. run `jira-logs.sh` and follow the instructions
+   - run `jira-logs.sh` and follow the instructions
 
-2.
+OR
 
    - Go to `jira-work-log`
    - Run  `yarn install` (if you don't have `yarn` - run `npm install --global yarn` first)
