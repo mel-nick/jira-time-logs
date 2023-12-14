@@ -21,6 +21,7 @@ const getData = async (userName, startDate, endDate) => {
         new URLSearchParams({
           startDate,
           endDate,
+          userName,
         })
     );
     const data = await response.json();
@@ -31,6 +32,7 @@ const getData = async (userName, startDate, endDate) => {
             '/worklogs?' +
               new URLSearchParams({
                 id: issue.id,
+                userName,
               })
           );
           const data = await workLogsData.json();

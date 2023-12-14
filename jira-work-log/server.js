@@ -8,7 +8,6 @@ dotenv.config();
 const __dirname = path.resolve();
 
 const apiUrl = 'https://pgga-es.atlassian.net/rest/api/3';
-const Authorization = `Basic ${process.env.token}`;
 const responseType = 'json';
 
 const app = express();
@@ -23,11 +22,12 @@ app.get('/', (req, res) => {
 
 app.get('/issues', (req, res) => {
   const url = `${apiUrl}/search?jql=worklogAuthor=currentUser()and worklogDate>=${req.query.startDate} and worklogDate<=${req.query.endDate}`;
+  const encodedToken = `${req.query.userName}:${process.env.token}`;
   axios({
     url,
     responseType,
     headers: {
-      Authorization,
+      Authorization: `Basic ${btoa(encodedToken)}`,
     },
   })
     .then((data) => res.json(data.data))
@@ -36,11 +36,12 @@ app.get('/issues', (req, res) => {
 
 app.get('/worklogs', (req, res) => {
   const url = `${apiUrl}/issue/${req.query.id}/worklog`;
+  const encodedToken = `${req.query.userName}:${process.env.token}`;
   axios({
     url,
     responseType,
     headers: {
-      Authorization,
+      Authorization: `Basic ${btoa(encodedToken)}`,
     },
   })
     .then((data) => res.json(data.data))
