@@ -30,7 +30,7 @@ while [ "$new" = yes ]; do
             if  [ -f "./jira-work-log/.env" ] && grep -R "token=" "./jira-work-log/.env"; then
                echo "Token exist"
             else
-              echo "Enter you Jira token:"
+              echo "Enter your Jira token:"
               read -r token
               echo -e "token="$token"" >> ./jira-work-log/.env
             echo "Token has been created successfuly."
