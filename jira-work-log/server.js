@@ -22,12 +22,12 @@ app.get('/', (req, res) => {
 
 app.get('/issues', (req, res) => {
   const url = `${apiUrl}/search?jql=worklogAuthor=currentUser()and worklogDate>=${req.query.startDate} and worklogDate<=${req.query.endDate}`;
-  const encodedToken = `${req.query.userName}:${process.env.token}`;
+  const token = `${req.query.userName}:${process.env.token}`;
   axios({
     url,
     responseType,
     headers: {
-      Authorization: `Basic ${btoa(encodedToken)}`,
+      Authorization: `Basic ${btoa(token)}`,
     },
   })
     .then((data) => res.json(data.data))
@@ -36,12 +36,12 @@ app.get('/issues', (req, res) => {
 
 app.get('/worklogs', (req, res) => {
   const url = `${apiUrl}/issue/${req.query.id}/worklog`;
-  const encodedToken = `${req.query.userName}:${process.env.token}`;
+  const token = `${req.query.userName}:${process.env.token}`;
   axios({
     url,
     responseType,
     headers: {
-      Authorization: `Basic ${btoa(encodedToken)}`,
+      Authorization: `Basic ${btoa(token)}`,
     },
   })
     .then((data) => res.json(data.data))
