@@ -2,7 +2,10 @@
 
 ## How to:
 
-   - run `jira-logs.sh` and follow the instructions
+   - run `jira-logs.sh` and follow the instructions:
+   - install dependencies (2)
+   - create token (3)
+   - each time you want to run app and check your time entries hit (1) - no previous steps needed
 
 OR
 
